@@ -107,9 +107,9 @@ const TodoWithFigma = () => {
 
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid px-3">
         <div className="row">
-          <div className="col">
+          <div className="col ">
 
             <div className="top-parent-heading">
               <div className="top-sub-heading">Today</div>
@@ -148,7 +148,7 @@ const TodoWithFigma = () => {
 
             {
               listData.length > 0 && !showInput &&
-              <div className="top-filter-buttons mt-3">
+              <div className="top-filter-buttons ">
               <div >
                  <input
                    type="radio"
@@ -184,7 +184,7 @@ const TodoWithFigma = () => {
              </div>
             }
            
-            <div className=" mt-5">
+            <div className="mt-3">
               {!showInput && (
                 <div>
                   {listData.length > 0 &&
@@ -254,7 +254,7 @@ const TodoWithFigma = () => {
                             }
                           </div>
                         </div>
-                        <div className="hr-line"></div>
+                        <div className="hr-line mt-2"></div>
                         <br />
                       </div>
                     ))}

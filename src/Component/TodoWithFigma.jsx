@@ -94,10 +94,10 @@ const TodoWithFigma = () => {
   }, [listData]);
 
   const filterDatas = listData.filter((item) => {
-    if (newFilterData == "complete") {
+    if (newFilterData === "complete") {
       return item.checked === true;
     }
-    else if (newFilterData == "incomplete") {
+    else if (newFilterData === "incomplete") {
       return item.checked === false;
     }
     else {
@@ -110,9 +110,8 @@ const TodoWithFigma = () => {
       <div className="container-fluid px-3">
         <div className="row">
           <div className="col ">
-
-            <div className="top-parent-heading">
-              <div className="top-sub-heading">Today</div>
+            <div className="top-parent-heading mt-3">
+              <div className="top-sub-heading" style={{color : "#252A31"}}>Today</div>
               <div className="top-sub-icon">
                 <i className="fa-solid fa-circle-plus" onClick={handleClick}></i>
               </div>
@@ -120,24 +119,24 @@ const TodoWithFigma = () => {
 
             <div>
               {showInput && (
-                <div className="box-parent">
+                <div className="box-parent mt-5">
                   <div className="box-sub-parent">
-                    <div className="box-title">Add TODO</div>
+                    <div className="box-title" >Add TODO</div>
 
                     <textarea
-                      className="textarea-feild"
+                      className="textarea-feild resize"
                       onChange={(e) => setInputData(e.target.value)} ></textarea>
 
                     <div className="input-button-parent ">
-                         <div className="cancel-btn" onClick={handleCancel} style={{color : "#006CFF"}}>
+                         <div className="cancel-btn" onClick={handleCancel} style={{color : "#006CFF", fontFamily :'SF Pro Text'}}>
                         Cancel
 
                       </div>
                       {showError && (
                         <div className="show-error"> Please Enter Data </div>
                       )}
-                      <div className="add-btn" onClick={handleAdd} style={{color : "#006CFF"}}>
-                        ADD
+                      <div className="add-btn" onClick={handleAdd} style={{fontWeight : 'bold', fontSize : '18px', color : "#006CFF"}}>
+                        Done
                       </div>
 
                     </div>
@@ -148,8 +147,8 @@ const TodoWithFigma = () => {
 
             {
               listData.length > 0 && !showInput &&
-              <div className="top-filter-buttons ">
-              <div >
+              <div className="top-filter-buttons mt-3 ">
+              <div className="filter-heading" >
                  <input
                    type="radio"
                    id="option1"
@@ -160,7 +159,7 @@ const TodoWithFigma = () => {
                  />All
                </div>
  
-               <div >
+               <div className="filter-heading">
                  <input
                    type="radio"
                    id="option1"
@@ -171,20 +170,19 @@ const TodoWithFigma = () => {
                  />Complete
                </div>
  
-               <div   >
+               <div  className="filter-heading" >
                  <input
                    type="radio"
                    id="option1"
                    name="radio-group"
                    className="radio-btn"
-                 onClick={() => setNewFilterData("incomplete")}
-                 />Incomplete
+                 onClick={() => setNewFilterData("incomplete")}/>Incomplete
                </div>
  
              </div>
             }
            
-            <div className="mt-3">
+            <div className="mt-4">
               {!showInput && (
                 <div>
                   {listData.length > 0 &&
@@ -219,7 +217,7 @@ const TodoWithFigma = () => {
                                   <div className="edit-btn-parent">
                                     <input className="input-feild"
                                       type="text" value={editInputData}
-                                      onChange={(e) => setEditInputData(e.target.value)} />
+                                      onChange={(e) => setEditInputData(e.target.value)}  onBlur={EditDone} />
                                     <div className="click-btn">
                                       <i className="fa-regular fa-circle-check" onClick={EditDone}> </i>
                                     </div>

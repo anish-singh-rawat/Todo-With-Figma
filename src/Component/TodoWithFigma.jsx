@@ -81,7 +81,7 @@ const TodoWithFigma = () => {
     setListData([]);
   };
 
-  const CheckBoxClick = (id) => {
+  const checkBoxClick = (id) => {
     setListData((item) =>
       item.map((data) =>
         data.id === id ? { ...data, checked: !data.checked } : data
@@ -93,7 +93,7 @@ const TodoWithFigma = () => {
     localStorage.setItem("data", JSON.stringify(listData));
   }, [listData]);
 
-  const filterDatas = listData.filter((item) => {
+  const filterData = listData.filter((item) => {
     if (newFilterData === "complete") {
       return item.checked === true;
     }
@@ -186,7 +186,7 @@ const TodoWithFigma = () => {
               {!showInput && (
                 <div>
                   {listData.length > 0 &&
-                    filterDatas.map((data) => (
+                    filterData.map((data) => (
                       <div key={data.id} >
                         <div className="parent-data">
                           <div className="parent-data-one">
@@ -200,7 +200,7 @@ const TodoWithFigma = () => {
                                       value=""
                                       defaultChecked={data.checked}
                                       id="border-redius"
-                                      onClick={() => CheckBoxClick(data.id)}
+                                      onClick={() => checkBoxClick(data.id)}
                                     />
 
                                     <label
